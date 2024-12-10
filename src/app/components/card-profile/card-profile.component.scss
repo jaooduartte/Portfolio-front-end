@@ -1,62 +1,77 @@
 .sidebar {
   max-width: 300px;
+  max-height: 500px; /* Altura fixa */
   background: #fff;
   border-radius: 8px;
-  padding: 40px;
-  text-align: start;
+  padding: 40px; /* Ajustado para dar mais espaço interno */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  flex-direction: column; /* Alinha os itens verticalmente */
+  justify-content: space-between; /* Espaça os itens no card */
 }
 
 .profile-img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin: 0 auto 15px; /* Centraliza horizontalmente e adiciona espaçamento */
   object-fit: cover;
   background-image: url('assets/IMG_0345.jpg'); /* Caminho para a imagem */
   background-size: cover; /* Faz a imagem preencher o container */
   background-position: center; /* Centraliza a imagem */
   background-repeat: no-repeat; /* Evita repetição da imagem */
-  justify-content: center !important;
-  align-items: center !important;
-  justify-items: center !important;
 }
 
 h2 {
   font-size: 1.5rem;
-  margin: 0;
+  margin: 10px 0 5px; /* Pequeno ajuste para espaçamento */
   color: #333;
+  text-align: start; /* Alinha o título à esquerda */
 }
 
 .role {
   font-size: 1rem;
   color: #777;
   margin-bottom: 15px;
+  text-align: start; /* Alinha o subtítulo à esquerda */
 }
 
 .contact-info {
   list-style: none;
   padding: 0;
   margin: 0 0 15px;
+  text-align: start; /* Alinha à esquerda */
 }
 
 .contact-info li {
   font-size: 0.9rem;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.contact-info li i {
+  color: #830000; /* Cor dos ícones de contato */
+  padding-right: 5px;
+}
+
+.social-icons {
+  margin-top: auto; /* Empurra os ícones para o final do card */
+  display: flex;
+  gap: 10px; /* Espaçamento entre os ícones */
+  justify-content: center; /* Centraliza os ícones horizontalmente */
 }
 
 .social-icons a {
   color: #777;
-  margin: 0 8px;
+  margin: 0;
   font-size: 1.2rem;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
 }
 
 .social-icons a:hover {
-  color: #830000;
-  font-size: 1.4rem;
+  color: #830000; /* Cor ao passar o mouse */
+  transform: scale(1.2); /* Ícone aumenta suavemente */
 }
