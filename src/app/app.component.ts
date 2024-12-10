@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CardProfileComponent } from './components/card-profile/card-profile.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [CardProfileComponent],
 })
-export class AppComponent {
-  title = 'portfolio';
-}
+export class AppComponent {}

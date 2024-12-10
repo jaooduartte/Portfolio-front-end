@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Angular</title>
-</head>
-<body>
-  <div>
-    <h1>Portfolio Angular</h1>
-    <p>Este es un portfolio de proyectos realizados con Angular</p>
+<div class="container">
+  <!-- Card do perfil -->
+  <app-card-profile></app-card-profile>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <nav class="navbar">
+      <a href="#">About</a>
+      <a href="#">Resume</a>
+      <a href="#">Projects</a>
+    </nav>
+    <section class="intro">
+      <h1>Hello, I Am</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed aliquam
+        felis, quis pellentesque erat. Suspendisse aliquam mauris id velit
+        congue, vel volutpat nibh commodo.
+      </p>
+    </section>
+    <section class="skills">
+      <h2>My Skills</h2>
+      <div class="skills-list">
+        <span class="skill">.Net Core</span>
+        <span class="skill">Asp.Net</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">C#</span>
+        <span class="skill">Angular</span>
+        <span class="skill">TypeScript</span>
+      </div>
+    </section>
   </div>
-</body>
-</html>
+</div>
