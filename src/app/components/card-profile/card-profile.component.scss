@@ -8,18 +8,71 @@
   display: flex;
   flex-direction: column; /* Alinha os itens verticalmente */
   justify-content: space-between; /* Espaça os itens no card */
+  z-index: 0;
+}
+
+.profile-container {
+  position: relative; /* Necessário para posicionar as faíscas */
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 15px; /* Centraliza o container */
+  z-index: 2;
 }
 
 .profile-img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin: 0 auto 15px; /* Centraliza horizontalmente e adiciona espaçamento */
+  margin: 15px auto;
   object-fit: cover;
-  background-image: url('assets/IMG_0345.jpg'); /* Caminho para a imagem */
+  background-image: url('assets/IMG_0345.jpg');
   background-size: cover; /* Faz a imagem preencher o container */
-  background-position: center; /* Centraliza a imagem */
+  background-position: center;
   background-repeat: no-repeat; /* Evita repetição da imagem */
+  position: relative;
+  z-index: 2; /* Foto acima das faíscas */
+}
+
+/* Faíscas ao redor da imagem */
+.profile-container::before,
+.profile-container::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px; /* Ajuste para cobrir perfeitamente a área ao redor da foto */
+  height: 160px; /* Igual à largura */
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Atrás da foto */
+  pointer-events: none;
+  animation: spark-animation 3s infinite;
+}
+
+/* Faíscas visíveis */
+.profile-container::before {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(255, 69, 0, 0) 70%);
+  animation-delay: 0s; /* Sem atraso */
+}
+
+.profile-container::after {
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(255, 69, 0, 0) 70%);
+  animation-delay: 1s; /* Pequeno atraso para alternar faíscas */
+}
+
+/* Animação das faíscas */
+@keyframes spark-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.3;
+  }
 }
 
 h2 {
