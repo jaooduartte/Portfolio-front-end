@@ -4,6 +4,9 @@ html, body {
   height: 100%; /* Garante que o corpo da página ocupe toda a altura */
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -12,5 +15,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
-  // margin: 0;
+  background-attachment: fixed; /* Faz o fundo ficar fixo */
+}
+
+app-root {
+  width: 100%; /* Ajuste para evitar overflow */
+  max-width: 1200px; /* Limita a largura máxima do app */
+}
+
+@media (max-width: 768px) {
+  .body {
+    background-attachment: scroll; /* Alternativa para dispositivos móveis */
+    background-size: auto;
+    background-position: top; /* Ajusta a posição do fundo */
+  }
 }

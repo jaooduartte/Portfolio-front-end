@@ -1,25 +1,31 @@
-/* Container Principal */
 .container {
-  display: flex;
-  max-width: 1200px;
-  max-height: 100%;
-  margin: 0 auto;
-  padding-block: 40px;
+  display: flex; /* Layout flexível */
+  align-items: stretch; /* Faz os filhos ocuparem a mesma altura */
+  justify-content: space-between; /* Espaça os itens no container */
+  max-width: 1200px; /* Largura máxima do layout */
+  margin: auto; /* Centraliza horizontalmente */
+  padding: 40px; /* Adiciona um espaçamento interno */
   font-family: 'Poppins', sans-serif;
   color: #333;
-  justify-content: center;
+  height: auto; /* Altura da janela menos o padding */
+  box-sizing: border-box; /* Inclui o padding na altura total */
 }
 
 /* Main Content */
 .main-content {
-  flex: 2;
+  flex: 2; /* Faz o conteúdo principal ocupar mais espaço horizontal */
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column; /* Empilha os elementos no mobile */
+    padding: 40px 20px; /* Adiciona espaçamento superior e lateral */
   }
 
   .main-content {
