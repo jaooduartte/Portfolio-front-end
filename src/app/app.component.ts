@@ -11,4 +11,6 @@ import { SkillsComponent } from "./components/skills/skills.component";
   standalone: true,
   imports: [CardProfileComponent, DescriptionComponent, HeaderComponent, SkillsComponent],
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'Portfolio';
+}
