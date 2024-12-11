@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 15px;
   padding: 10px;
   background-color: #fff;
@@ -8,14 +9,70 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.navbar a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s;
+.links{
+  display: flex;
+  gap: 30px;
+  margin-left: 10px;
+  width: 100%;
+  justify-content: center;
 }
 
-.navbar a:hover {
+.links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
+}
+
+.links a:hover {
   color: #830000;
+  transform: scale(1.1);
+}
+
+/* BOTÃO DE DOWNLOAD DO CURRICULO */
+.download-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #777; /* Cor do botão */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20%; /* Botão redondo */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
+}
+
+.download-btn i {
+  font-size: 1.2rem; /* Tamanho do ícone */
+  color: #fff;
+}
+
+.download-btn:hover {
+  background-color: #830000; /* Cor ao passar o mouse */
+  transform: scale(1.1); /* Aumenta o botão suavemente */
+}
+
+.download-btn .tooltip-text {
+  position: absolute;
+  bottom: -30px; /* Ajuste vertical */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #000;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0; /* Texto oculto por padrão */
+  visibility: hidden; /* Invisível */
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.download-btn:hover .tooltip-text {
+  opacity: 1; /* Exibe o texto */
+  visibility: visible;
 }
