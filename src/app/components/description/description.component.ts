@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-description',
   imports: [],
   templateUrl: './description.component.html',
-  styleUrl: './description.component.scss'
+  styleUrl: './description.component.scss',
 })
 export class DescriptionComponent {
-
+  
 }
