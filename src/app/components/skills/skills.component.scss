@@ -3,11 +3,15 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 10px;
+  overflow: hidden; /* Garante que os itens fora do container sejam ocultados */
   /* Animação do container */
   opacity: 0;
   transform: translate3d(0, -60px, 0);
   animation: fade 1s ease-in-out forwards;
   animation-delay: 2s; /* Delay de 2 segundos */
+  // width: 30rem;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .skills h2 {
@@ -21,11 +25,31 @@
 }
 
 .skills-list {
-  width: 60rem;
-  max-width: 90vw;
+  width: 100%; /* Ocupa a largura do container */
+  max-width: 100%; /* Ajusta à largura do container pai */
   display: flex;
-  justify-content: space-between;
+  flex-shrink: 0;
+  // justify-content: space-between;
+  position: relative;
+  padding: 1.5rem 0;
   gap: 10px;
+  overflow: hidden;
+}
+
+.skills-list .inner {
+  display: flex;
+  width: max-content; /* Permite que o conteúdo se ajuste ao tamanho real */
+  animation: loop 10s linear infinite; /* Animação infinita */
+}
+
+.skills-list .fade {
+  pointer-events: none;
+  background: linear-gradient(90deg, #fff, transparent 30%, transparent 70%, #fff);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .skill {
@@ -34,19 +58,14 @@
   border-radius: 8px;
   font-size: 0.9rem;
   color: #333;
+  margin-right: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 100px;
   text-align: center;
   opacity: 0; /* Invisível inicialmente */
   transform: translate3d(0, -30px, 0); /* Começa deslocado */
   animation: fade-text 1s ease-in-out forwards;
   animation-delay: 2.6s; /* Atraso para aparecer após o container */
-}
-
-.skill:hover {
-  background: #0077b5;
-  color: white;
-  cursor: pointer;
 }
 
 @keyframes fade {
@@ -69,5 +88,15 @@
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Animação de carrossel */
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
