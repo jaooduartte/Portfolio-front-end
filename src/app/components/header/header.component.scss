@@ -7,14 +7,22 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Animação do container */
+  opacity: 0;
+  transform: translate3d(0, -60px, 0);
+  animation: fade 1.5s ease-in-out forwards;
 }
 
-.links{
+.links {
   display: flex;
   gap: 30px;
   margin-left: 10px;
   width: 100%;
   justify-content: center;
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 0.3s; /* Atraso para aparecer após o container */
 }
 
 .links a {
@@ -44,11 +52,16 @@
   border-radius: 20%; /* Botão redondo */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
+  
 }
 
 .download-btn i {
   font-size: 1.2rem; /* Tamanho do ícone */
   color: #fff;
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 0.3s; /* Atraso para aparecer após o container */
 }
 
 .download-btn:hover {
@@ -58,14 +71,14 @@
 
 .download-btn .tooltip-text {
   position: absolute;
-  bottom: -30px; /* Ajuste vertical */
+  bottom: 50px; /* Ajuste vertical */
   left: 50%;
   transform: translateX(-50%);
-  background-color: #000;
+  background-color: #333;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   white-space: nowrap;
   opacity: 0; /* Texto oculto por padrão */
   visibility: hidden; /* Invisível */
@@ -75,4 +88,28 @@
 .download-btn:hover .tooltip-text {
   opacity: 1; /* Exibe o texto */
   visibility: visible;
+}
+
+/* Animação fade-in para o container */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Animação fade-in para os textos */
+@keyframes fade-text {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

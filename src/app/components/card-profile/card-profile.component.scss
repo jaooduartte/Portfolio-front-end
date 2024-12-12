@@ -10,6 +10,9 @@
   justify-content: space-between; /* Espaça os itens internos */
   box-sizing: border-box; /* Inclui o padding na altura total */
   overflow: hidden; /* Evita overflow do conteúdo */
+  opacity: 0;
+  transform: translate3d(0, -60px, 0);
+  animation: fade 1s ease-in-out forwards;
 }
 
 .profile-container {
@@ -18,6 +21,10 @@
   height: 150px;
   margin: 0 auto 15px; /* Centraliza o container */
   z-index: 2;
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 0.3s; /* Atraso para aparecer após o título */
 }
 
 .profile-img {
@@ -26,7 +33,7 @@
   border-radius: 50%;
   margin: 15px auto;
   object-fit: cover;
-  background-image: url('assets/IMG_0345.jpg');
+  background-image: url("assets/IMG_0345.jpg");
   background-size: cover; /* Faz a imagem preencher o container */
   background-position: center;
   background-repeat: no-repeat; /* Evita repetição da imagem */
@@ -37,7 +44,7 @@
 /* Faíscas ao redor da imagem */
 .profile-container::before,
 .profile-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,43 +58,41 @@
 
 /* Faíscas visíveis */
 .profile-container::before {
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(255, 69, 0, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 69, 0, 0) 70%
+  );
   animation-delay: 0s; /* Sem atraso */
 }
 
 .profile-container::after {
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(255, 69, 0, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 69, 0, 0) 70%
+  );
   animation-delay: 1s; /* Pequeno atraso para alternar faíscas */
 }
 
-/* Animação das faíscas */
-@keyframes spark-animation {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 1;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 0.3;
-  }
-}
-
-h2 {
+.name h2 {
+  margin: 10px 0;
   font-size: 1.5rem;
-  margin: 10px 0 5px; /* Pequeno ajuste para espaçamento */
+  font-weight: bold;
   color: #333;
-  text-align: start; /* Alinha o título à esquerda */
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 0.6s; /* Atraso para aparecer após o container */
 }
 
 .role {
   font-size: 1rem;
   color: #777;
-  margin-bottom: 15px;
-  text-align: start; /* Alinha o subtítulo à esquerda */
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 0.9s; /* Atraso para aparecer após o título */
 }
 
 .contact-info {
@@ -95,6 +100,10 @@ h2 {
   padding: 0;
   margin: 0 0 15px;
   text-align: start; /* Alinha à esquerda */
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 1.2s; /* Atraso para aparecer após o título */
 }
 
 .contact-info li {
@@ -115,6 +124,10 @@ h2 {
   display: flex;
   gap: 10px; /* Espaçamento entre os ícones */
   justify-content: center; /* Centraliza os ícones horizontalmente */
+  opacity: 0; /* Invisível inicialmente */
+  transform: translate3d(0, -30px, 0); /* Começa deslocado */
+  animation: fade-text 1s ease-in-out forwards;
+  animation-delay: 1.5s; /* Atraso para aparecer após o título */
 }
 
 .social-icons a {
@@ -130,6 +143,46 @@ h2 {
   transform: scale(1.2); /* Ícone aumenta suavemente */
 }
 
+/* Animação das faíscas */
+@keyframes spark-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+/* Animação fade-in para o container */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Animação fade-in para os textos */
+@keyframes fade-text {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
     flex-direction: row;
@@ -137,7 +190,7 @@ h2 {
     align-items: center;
     margin-top: 200px;
   }
-  .social-icons{
+  .social-icons {
     flex-direction: column;
   }
 }
