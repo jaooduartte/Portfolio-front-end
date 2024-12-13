@@ -44,7 +44,13 @@
 
 .skills-list .fade {
   pointer-events: none;
-  background: linear-gradient(90deg, #fff, transparent 30%, transparent 70%, #fff);
+  background: linear-gradient(
+    90deg,
+    #fff,
+    transparent 30%,
+    transparent 70%,
+    #fff
+  );
   position: absolute;
   top: 0;
   bottom: 0;
@@ -66,6 +72,40 @@
   transform: translate3d(0, -30px, 0); /* Começa deslocado */
   animation: fade-text 1s ease-in-out forwards;
   animation-delay: 2.6s; /* Atraso para aparecer após o container */
+}
+
+/* A barra de progresso */
+.progress-bar {
+  position: relative;
+  height: 5px;
+  background: #ddd; /* Fundo da barra */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px; /* Espaço entre a barra e o texto */
+}
+
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: var(--progress); /* Usando a variável progress para largura */
+  top: 0;
+  left: 0;
+  transition: width 0.5s ease, background-color 0.5s ease; /* Animação suave */
+  background-color: var(--bar-color, #ddd); /* Cor padrão caso não seja definida */
+}
+
+/* Funções para cores com classes */
+.skill[data-progress="low"] .progress-bar::before {
+  --bar-color: #a30000; /* Vermelho */
+}
+
+.skill[data-progress="medium"] .progress-bar::before {
+  --bar-color: #ff6a00; /* Laranja */
+}
+
+.skill[data-progress="high"] .progress-bar::before {
+  --bar-color: #009100; /* Verde */
 }
 
 @keyframes fade {
