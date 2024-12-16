@@ -23,6 +23,10 @@ app-root {
   width: 100%; /* Ajuste para evitar overflow */
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+
 @media (max-width: 768px) {
   .body {
     background-attachment: scroll; /* Alternativa para dispositivos móveis */
