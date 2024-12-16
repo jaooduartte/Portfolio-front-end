@@ -1,0 +1,18 @@
+<div class="modal-overlay" *ngIf="isVisible" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()"> <!-- Impede o clique de fechar quando for na modal -->
+      <button class="close-btn" (click)="closeModal()">×</button>
+      <h2>Experiência Profissional</h2>
+      <div class="experiencia-lista">
+        <div class="experiencia-item">
+          <h3>P. X. DE OLIVEIRA PAPELARIA E ATACADO</h3>
+          <p><strong>Vendedor</strong> | Jan/2014 - Ago/2015</p>
+          <p>Desempenhei o papel de vendedor, interagindo com clientes e desenvolvendo habilidades de negociação.</p>
+        </div>
+        <div class="experiencia-item">
+          <h3>ELOVERDE AMBIENTAL</h3>
+          <p><strong>Analista de Suporte</strong> | Nov/2023 - Atualmente</p>
+          <p>Forneço assistência técnica aos clientes, solucionando problemas e documentando casos para melhorias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
