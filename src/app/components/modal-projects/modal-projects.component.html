@@ -1,0 +1,21 @@
+<div class="modal-overlay" *ngIf="isVisible" [ngClass]="{'fade-out': isClosing}" (click)="closeModal()">
+    <div class="modal-content" [ngClass]="{'fade-out': isClosing}" (click)="$event.stopPropagation()"> <!-- Impede o clique de fechar quando for na modal -->
+      <button class="close-btn" (click)="closeModal()">×</button>
+      <h2>Projetos</h2>
+      
+      <div class="list">
+        <div class="item">
+          <h3>P. X. DE OLIVEIRA PAPELARIA E ATACADO</h3>
+          <p class="job"><strong>Vendedor</strong> Jan/2014 - Ago/2015</p>
+          <p>      Atuei como Vendedor na P. X. DE OLIVEIRA PAPELARIA E ATACADO, empresa do setor varejista, onde interagi diretamente com clientes, fornecendo informações sobre produtos, esclarecendo dúvidas e auxiliando nas decisões de compra. Desenvolvi habilidades de negociação e persuasão, o que contribuiu para o aumento das vendas e a satisfação dos clientes. Além disso, aprimorei minha capacidade de gerenciamento de tempo ao lidar com múltiplas tarefas e demandas em períodos de alta movimentação.
+          </p>
+        </div>
+        <div class="item">
+          <h3>ELOVERDE AMBIENTAL</h3>
+          <p class="job"><strong>Analista de Suporte</strong> Nov/2023 - Atualmente</p>
+          <p>      Atualmente trabalho como Analista de Suporte na ELOVERDE AMBIENTAL, sendo responsável por fornecer assistência técnica aos clientes, diagnosticar e solucionar problemas relacionados à plataforma de maneira ágil e eficaz, garantindo uma experiência satisfatória ao cliente. Além disso, documento casos recorrentes e colaboro ativamente com outros times, reportando melhorias e bugs identificados no sistema, além de realizar testes rigorosos de novas funcionalidades antes de serem enviadas ao cliente final. Essa abordagem contribui para a melhoria contínua da plataforma e o alinhamento entre as equipes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

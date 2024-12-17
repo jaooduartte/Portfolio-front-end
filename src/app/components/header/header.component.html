@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar">
         <div class="links">
-            <a href="#" (click)="openExperienciaModal()">Projetos</a>
+            <a href="#" (click)="openProjectsModal()">Projetos</a>
             <a href="#" (click)="openExperienciaModal()">Experiência Profissional</a>
         </div>
         <div class="actions">
@@ -17,4 +17,8 @@
         [isVisible]="showExperienciaModal"
         (onClose)="showExperienciaModal = false">
     </app-modal-experiencia>
+    <app-modal-projects
+        [isVisible]="showProjectsModal"
+        (onClose)="showProjectsModal = false">
+    </app-modal-projects>
 </div>

@@ -1,0 +1,129 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInOverlay 0.5s ease-in-out; /* Animação de entrada */
+    &.fade-out {
+      animation: fadeOutOverlay 0.5s ease-in-out forwards; /* Animação de saída */
+    }
+  }
+  
+  .modal-content {
+    position: relative; /* Garante que o botão de fechar está corretamente posicionado */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 95%; /* Ocupar 95% da largura da tela */
+    max-width: 600px;
+    max-width: 800px; /* Limite máximo de largura */
+    max-height: 90vh; /* Não ultrapassar 90% da altura da tela */
+    overflow-y: auto; /* Adicionar rolagem vertical quando o conteúdo for maior que a altura */
+    animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
+  
+    &.fade-out {
+      animation: fadeOut 0.5s ease-in-out forwards; /* Animação de saída */
+    }
+  }
+  
+  .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px; 
+    border-bottom: 2px solid #830000; 
+  }
+  
+  p {
+    font-size: 15px;
+    margin-left: 10px;
+    line-height: 1.6; /* Melhor legibilidade */
+  
+  }
+  
+  .job {
+    font-size: 16px;
+    margin-left: 0px;
+  }
+  
+  strong {
+    background-color: #830000;
+    color: #fff;
+    padding: 3px;
+    padding-inline: 20px;
+    margin-right: 10px;
+    width: 300px;
+    border-radius: 8px;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .list {
+    margin-top: 30px;
+  }
+  
+  .item {
+    margin-block: 40px;
+    box-shadow: #830000;
+    // padding: 10px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  
+  @keyframes fadeOutOverlay {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeInOverlay {
+    from {
+      opacity: 0;
+      transform: scale(1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
