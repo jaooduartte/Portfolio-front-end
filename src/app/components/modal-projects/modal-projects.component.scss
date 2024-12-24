@@ -41,28 +41,8 @@
     padding-bottom: 10px; 
     border-bottom: 2px solid #830000; 
   }
+
   
-  p {
-    font-size: 15px;
-    margin-left: 10px;
-    line-height: 1.6; /* Melhor legibilidade */
-  
-  }
-  
-  .job {
-    font-size: 16px;
-    margin-left: 0px;
-  }
-  
-  strong {
-    background-color: #830000;
-    color: #fff;
-    padding: 3px;
-    padding-inline: 20px;
-    margin-right: 10px;
-    width: 300px;
-    border-radius: 8px;
-  }
   
   .close-btn {
     background: none;
@@ -79,9 +59,60 @@
   }
   
   .item {
-    margin-block: 40px;
-    box-shadow: #830000;
-    // padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px;
+    gap: 10px;
+  }
+
+  .description a {
+    margin-inline: 1px; /* Adiciona espaço à direita de cada link */
+  }
+
+  
+  .description a.link-hover {
+    display: inline-block; /* Garante que a escala funcione */
+  }
+  
+  p {
+    font-size: 15px;
+    line-height: 2; /* Melhor legibilidade */
+    font-size: 16px;
+    text-align: center;
+    margin-inline: 10px;
+    gap: 10px;
+  }
+  
+  strong {
+    background-color: #0c5641;
+    color: #fff;
+    padding: 3px;
+    padding-inline: 20px;
+    width: 300px;
+    border-radius: 8px;
+  }
+
+  .project-image {
+    display: block;
+    width: 100%; /* A imagem ocupa toda a largura do card */
+    max-height: 300px; /* Define uma altura máxima */
+    object-fit: cover; /* Garante que a imagem não seja distorcida */
+    margin-top: 15px; /* Espaçamento acima da imagem */
+    border-radius: 8px; /* Bordas arredondadas para a imagem */
   }
   
   @keyframes fadeIn {

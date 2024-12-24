@@ -29,6 +29,18 @@ h2 {
   font-size: 1.5rem;
 }
 
+.link-hover {
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
+}
+
+.link-hover:hover {
+  color: #830000;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .body {
     background-attachment: scroll; /* Alternativa para dispositivos móveis */

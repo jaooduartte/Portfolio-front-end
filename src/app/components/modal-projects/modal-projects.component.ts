@@ -22,4 +22,20 @@ export class ModalProjectsComponent {
       this.onClose.emit(); // Emite o evento de fechamento
     }, 500); // Tempo da animação (500ms)
   }
+
+  downloadDocument() {
+    try {
+      console.log('Download iniciado');
+      const fileUrl = '/assets/Documentacao-Completa-IPJ.pdf';
+      console.log('Caminho do arquivo:', fileUrl);
+      const link = document.createElement('a');
+      link.href = fileUrl;
+      link.download = 'Documentacao-Completa-IPJ.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Erro ao tentar baixar a documentação:', error);
+    }
+  }
 }
