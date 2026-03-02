@@ -2,116 +2,13 @@
     <h2>Meus conhecimentos</h2>
     <div class="skills-list">
         <div class="inner">
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 85%">
-                </div>
-                HTML/CSS
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 70%">
-                </div>
-                Java Script
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 55%">
-                </div>
-                C
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 30%">
-                </div>
-                C#
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 50%">
-                </div>
-                Flutter
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 40%">
-                </div>
-                Angular
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 80%">
-                </div>
-                SQL
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 90%">
-                </div>
-                Github
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 70%">
-                </div>
-                Figma
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 90%">
-                </div>
-                JIRA
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 05%">
-                </div>
-                React Native
-            </div>
-            <!-- Duplicação para criar o loop contínuo -->
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 85%">
-                </div>
-                HTML/CSS
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 70%">
-                </div>
-                Java Script
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 55%">
-                </div>
-                C
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 30%">
-                </div>
-                C#
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 50%">
-                </div>
-                Flutter
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 40%">
-                </div>
-                Angular
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 80%">
-                </div>
-                SQL
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 90%">
-                </div>
-                Github
-            </div>
-            <div class="skill" data-progress="medium">
-                <div class="progress-bar" style="--progress: 70%">
-                </div>
-                Figma
-            </div>
-            <div class="skill" data-progress="high">
-                <div class="progress-bar" style="--progress: 90%">
-                </div>
-                JIRA
-            </div>
-            <div class="skill" data-progress="low">
-                <div class="progress-bar" style="--progress: 05%">
-                </div>
-                React Native
+            <div
+                *ngFor="let skill of skillsLoop"
+                class="skill"
+                [attr.data-progress]="skill.progress"
+            >
+                <div class="progress-bar" [style.--progress]="skill.percent + '%'"></div>
+                {{ skill.name }}
             </div>
         </div>
         <!-- Gradiente de fade -->

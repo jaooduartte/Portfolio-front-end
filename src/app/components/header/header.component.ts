@@ -6,29 +6,29 @@ import { ModalProjectsComponent } from '../modal-projects/modal-projects.compone
   selector: 'app-header',
   imports: [ModalExperienciaComponent, ModalProjectsComponent],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'], // Corrigido o erro de "styleUrl"
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   showExperienciaModal: boolean = false;
   showProjectsModal: boolean = false;
 
   openExperienciaModal() {
-    console.log('Abrindo modal de experiência profissional'); // Log para verificar o clique
+    console.log('Abrindo modal de experiência profissional');
     this.showExperienciaModal = true;
   }
   openProjectsModal() {
-    console.log('Abrindo modal de projetos'); // Log para verificar o clique
+    console.log('Abrindo modal de projetos');
     this.showProjectsModal = true;
   }
 
   downloadCurriculo() {
     try {
       console.log('Download iniciado');
-      const fileUrl = '/assets/Curriculo-2024.pdf';
+      const fileUrl = '/assets/Curriculo-2026.1.pdf';
       console.log('Caminho do arquivo:', fileUrl);
       const link = document.createElement('a');
       link.href = fileUrl;
-      link.download = 'Curriculo-2024.pdf';
+      link.download = 'Curriculo-2026.1.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -1,23 +1,81 @@
-<div class="modal-overlay" *ngIf="isVisible" [ngClass]="{'fade-out': isClosing}" (click)="closeModal()">
+<div class="modal-overlay" *ngIf="isVisible" [ngClass]="{'fade-out': isClosing}" (click)="onOverlayClick()">
     <div class="modal-content" [ngClass]="{'fade-out': isClosing}" (click)="$event.stopPropagation()">
         <!-- Impede o clique de fechar quando for na modal -->
         <button class="close-btn" (click)="closeModal()">×</button>
         <h2>Projetos</h2>
 
         <div class="list">
-            <div class="item">
-                <h3>SoftwareIPJ</h3>
+            <div
+                class="item"
+                *ngFor="let project of projects"
+                [attr.data-project-code]="project.code"
+                [attr.data-title-color]="project.titleColor"
+            >
+                <h3>{{ project.name }}</h3>
                 <div class="description">
-                    <p><strong>Tecnologias</strong><br>Flutter - Dart - Supabase</p>
-                    <p><strong>Conclusão</strong><br>Dezembro/24</p>
-                    <p><strong>Links</strong><br>
-                        <a href="https://github.com/kalebefukuda/SoftwareIPJ_app" class="link-hover">GitHub</a>
-                        <a> - </a>
-                        <a (click)="downloadDocument()" class="link-hover">Documentação</a>
+                    <p><strong>Tecnologias</strong><br>{{ project.technologies }}</p>
+                    <p><strong>Conclusão</strong><br>{{ project.conclusion }}</p>
+                    <p>
+                        <strong>Links</strong><br>
+                        <span class="links-wrapper">
+                            <a
+                                *ngFor="let projectLink of project.links"
+                                [href]="projectLink.url"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="link-hover"
+                            >
+                                {{ projectLink.label }}
+                            </a>
+                            <a
+                                *ngIf="project.hasDocumentation"
+                                (click)="downloadDocument()"
+                                class="link-hover"
+                            >
+                                Documentação
+                            </a>
+                        </span>
                     </p>
                 </div>
-                <img src="assets/softwareipj.jpeg" alt="Imagem do Projeto SoftwareIPJ" class="project-image">
+                <div
+                    class="project-gallery"
+                    [attr.data-view-mode]="project.viewMode"
+                    [attr.data-project-code]="project.code"
+                >
+                    <button
+                        *ngFor="let screenshot of project.screenshots"
+                        type="button"
+                        class="project-image-button"
+                        (click)="openImagePreview(screenshot)"
+                    >
+                        <img
+                            [src]="screenshot.imagePath"
+                            [alt]="screenshot.imageAlt"
+                            class="project-image"
+                        >
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div
+        class="image-preview-overlay"
+        *ngIf="selectedImage"
+        (click)="closeImagePreview(); $event.stopPropagation()"
+    >
+        <button
+            type="button"
+            class="image-preview-close"
+            (click)="closeImagePreview(); $event.stopPropagation()"
+        >
+            ×
+        </button>
+        <img
+            [src]="selectedImage.imagePath"
+            [alt]="selectedImage.imageAlt"
+            class="image-preview-full"
+            (click)="$event.stopPropagation()"
+        >
     </div>
 </div>

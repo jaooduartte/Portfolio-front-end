@@ -56,27 +56,34 @@
   
   .list {
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
   
   .item {
-    margin-top: 20px;
+    margin-top: 0;
+    padding: 12px;
+    border: 1px solid #e6e6e6;
     border-radius: 8px;
-    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #fafafa;
     display: flex;
     flex-direction: column;
   }
 
   h3 {
     text-align: center;
+    color: #242424;
   }
 
   .description {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 0px 10px;
-    gap: 10px;
+    gap: 12px;
   }
 
   .description a {
@@ -87,14 +94,25 @@
   .description a.link-hover {
     display: inline-block; /* Garante que a escala funcione */
   }
+
+  .links-wrapper {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
   
   p {
     font-size: 15px;
     line-height: 2; /* Melhor legibilidade */
     font-size: 16px;
     text-align: center;
+    margin: 0;
     margin-inline: 10px;
     gap: 10px;
+    min-width: 190px;
   }
   
   strong {
@@ -102,17 +120,108 @@
     color: #fff;
     padding: 3px;
     padding-inline: 20px;
-    width: 300px;
+    display: inline-block;
     border-radius: 8px;
+  }
+
+  .item[data-title-color="dark-red"] strong {
+    background-color: #5b0000;
+  }
+
+  .item[data-title-color="light-red"] strong {
+    background-color: #c74141;
+  }
+
+  .item[data-title-color="dark-gray"] strong {
+    background-color: #3d3d3d;
+  }
+
+  .project-gallery {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    align-items: start;
+  }
+
+  .project-gallery[data-view-mode="mobile"] {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    justify-items: center;
+  }
+
+  .project-gallery[data-project-code="software-ipj"] {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .project-image-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    cursor: zoom-in;
   }
 
   .project-image {
     display: block;
-    width: 100%; /* A imagem ocupa toda a largura do card */
-    max-height: 300px; /* Define uma altura máxima */
-    object-fit: cover; /* Garante que a imagem não seja distorcida */
-    margin-top: 15px; /* Espaçamento acima da imagem */
-    border-radius: 8px; /* Bordas arredondadas para a imagem */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .project-gallery[data-view-mode="mobile"] .project-image-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-gallery[data-view-mode="mobile"] .project-image {
+    width: auto;
+    max-width: 100%;
+    max-height: 380px;
+  }
+
+  .project-gallery[data-project-code="software-ipj"] .project-image-button {
+    max-width: 100%;
+  }
+
+  .project-gallery[data-project-code="software-ipj"] .project-image {
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  .image-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: rgba(0, 0, 0, 0.86);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .image-preview-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 999px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .image-preview-full {
+    width: auto;
+    height: auto;
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
   }
   
   @keyframes fadeIn {
