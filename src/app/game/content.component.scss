@@ -1,0 +1,172 @@
+:host {
+  display: block;
+  height: 100%;
+  min-height: 0;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+.project-list button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  border: 1px solid #526348;
+  background: #c4cf99;
+  color: inherit;
+  padding: 12px;
+  cursor: pointer;
+}
+.project-list strong {
+  flex: 1;
+  font-size: 13px;
+}
+.project-list button.selected,
+.project-list button:hover {
+  background: #344b35;
+  color: #dfe8b8;
+}
+.small {
+  font-size: 10px;
+}
+.reading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.reading h2 {
+  font-size: clamp(14px, 2.5vh, 21px);
+  margin: 0;
+  line-height: 1.25;
+}
+.page-body {
+  flex: 1;
+  min-height: 0;
+  font:
+    13px/1.65 "Courier New",
+    monospace;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.page-body p {
+  margin: 0;
+}
+.page-body a {
+  display: block;
+  color: inherit;
+  border-bottom: 1px solid #526348;
+  padding: 6px 0;
+  font-weight: bold;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.pagination button {
+  background: transparent;
+  border: 1px solid #526348;
+  color: inherit;
+  min-width: 40px;
+  min-height: 30px;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.image-button {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border: 0;
+  background: #e8ebdf;
+  padding: 4px;
+  cursor: zoom-in;
+}
+.image-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.image-button span {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: #293e2d;
+  color: #eef3d4;
+  padding: 3px 5px;
+  font-size: 9px;
+}
+.skill-progress {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.skill-progress-heading,
+.skill-progress-caption {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 11px;
+}
+.skill-progress-heading strong {
+  font-size: 14px;
+}
+.skill-progress-track {
+  height: 15px;
+  border: 2px solid #526348;
+  background: #dfe8b8;
+  box-shadow: inset 2px 2px #6d7b56;
+}
+.skill-progress-track span {
+  display: block;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #344b35 0 8px,
+    #455e37 8px 12px
+  );
+}
+.skill-progress-caption {
+  color: #526348;
+  font-size: 9px;
+}
+@media (max-height: 500px) {
+  .reading {
+    gap: 5px;
+  }
+  .project-list {
+    margin: 8px 0;
+    gap: 4px;
+  }
+  .project-list button {
+    padding: 6px;
+  }
+  .small {
+    display: none;
+  }
+  .page-body {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+}
+
+.reading h2 {
+  min-height: 2.5em;
+  flex-shrink: 0;
+}

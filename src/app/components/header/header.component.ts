@@ -24,11 +24,11 @@ export class HeaderComponent {
   downloadCurriculo() {
     try {
       console.log('Download iniciado');
-      const fileUrl = '/assets/Curriculo-2026.1.pdf';
+      const fileUrl = '/assets/CURRICULO-2026.2.pdf';
       console.log('Caminho do arquivo:', fileUrl);
       const link = document.createElement('a');
       link.href = fileUrl;
-      link.download = 'Curriculo-2026.1.pdf';
+      link.download = 'CURRICULO-2026.2.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

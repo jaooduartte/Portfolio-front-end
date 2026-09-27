@@ -1,10 +1,219 @@
-<div class="container">
-  <!-- Card do perfil -->
-  <app-card-profile></app-card-profile>
-  <!-- Main Content -->
-  <div class="main-content">
-    <app-header></app-header>
-    <app-description></app-description>
-    <app-skills></app-skills>
-  </div>
+<div class="portfolio-shell">
+  <header class="masthead">
+    <a class="wordmark" href="/" aria-label="João Duarte início"
+      ><span class="brand-icon">✳</span> joão.duarte<span class="brand-period"
+        >®</span
+      ></a
+    ><span class="masthead-note">DESENVOLVIMENTO & CURIOSIDADE</span
+    ><span class="edition">PORTFÓLIO INTERATIVO — VOL. 01</span>
+  </header>
+  <main>
+    <aside class="intro">
+      <span class="overline"><i></i> UM POUCO SOBRE MIM, EM PIXELS</span>
+      <h1>Pequena tela.<br />Grandes <em>ideias.</em></h1>
+      <p>
+        João Duarte. Desenvolvedor full-stack.<br />Construindo soluções,
+        explorando<br />possibilidades — um projeto por vez.
+      </p>
+      <div class="intro-rule"></div>
+      <span class="location">JOINVILLE, SC · BRASIL</span>
+      <div class="handwritten">Entre. Fique à vontade.</div>
+    </aside>
+    <section class="console" aria-label="Console do portfólio">
+      <div class="console-top">
+        <span>JD—01</span><span>PORTABLE IDEAS SYSTEM</span>
+      </div>
+      <div class="bezel">
+        <div class="bezel-top">
+          <span><i></i> POWER</span><span>DOT MATRIX WITH CURIOSITY</span>
+        </div>
+        <div
+          class="display"
+          #display
+          tabindex="-1"
+          [attr.aria-label]="
+            game.screen() === 'boot' ? 'Bem-vindo ao portfólio' : label
+          "
+        >
+          @if (game.screen() === "boot") {
+            <div class="boot">
+              <div class="boot-mark">jd<span>®</span></div>
+              <span class="boot-caption">POCKET PORTFOLIO</span>
+              <div class="boot-line"></div>
+              <h2>Uma nova forma<br />de me conhecer.</h2>
+              <p>Explore meu estúdio.<br />Descubra o que eu construo.</p>
+              <button class="start-button" (click)="game.start()">
+                ENTRAR NO ESTÚDIO <span>→</span></button
+              ><button class="boot-menu" (click)="game.menu()">
+                ou ir direto ao menu
+              </button>
+            </div>
+          } @else if (game.screen() === "studio") {
+            <app-studio />
+          } @else {
+            <div class="screen-header">
+              <button (click)="back()" aria-label="Voltar">←</button
+              ><span>{{
+                game.screen() === "menu" ? "ESCOLHA SEU DESTINO" : label
+              }}</span
+              ><button (click)="game.menu()" aria-label="Abrir menu">☰</button>
+            </div>
+            <div class="screen-content">
+              @if (game.screen() === "menu") {
+                <nav class="game-menu" aria-label="Seções do portfólio">
+                  @for (
+                    station of game.stations;
+                    track station.section;
+                    let index = $index
+                  ) {
+                    <button
+                      [class.selected]="game.selection() === index"
+                      (click)="game.open(station.section)"
+                    >
+                      <span>0{{ index + 1 }}</span
+                      >{{ station.label }}<span>→</span>
+                    </button>
+                  }
+                </nav>
+              } @else {
+                <app-game-content [section]="section" />
+              }
+            </div>
+          }
+        </div>
+        <div class="bezel-bottom">A LITTLE WINDOW INTO MY WORLD</div>
+      </div>
+      <div class="console-brand">pocket<span>by João Duarte</span></div>
+      <div class="controls">
+        <div class="direction-pad" aria-label="Direcional">
+          <button
+            class="up"
+            aria-label="Mover para cima"
+            (pointerdown)="hold($event, 'up')"
+            (pointerup)="release()"
+            (pointercancel)="release()"
+            (lostpointercapture)="release()"
+            (click)="$event.detail === 0 && direction('up')"
+          >
+            ▴
+          </button>
+          <button
+            class="left"
+            aria-label="Mover para esquerda"
+            (pointerdown)="hold($event, 'left')"
+            (pointerup)="release()"
+            (pointercancel)="release()"
+            (lostpointercapture)="release()"
+            (click)="$event.detail === 0 && direction('left')"
+          >
+            ◂</button
+          ><span class="pad-center"></span>
+          <button
+            class="right"
+            aria-label="Mover para direita"
+            (pointerdown)="hold($event, 'right')"
+            (pointerup)="release()"
+            (pointercancel)="release()"
+            (lostpointercapture)="release()"
+            (click)="$event.detail === 0 && direction('right')"
+          >
+            ▸
+          </button>
+          <button
+            class="down"
+            aria-label="Mover para baixo"
+            (pointerdown)="hold($event, 'down')"
+            (pointerup)="release()"
+            (pointercancel)="release()"
+            (lostpointercapture)="release()"
+            (click)="$event.detail === 0 && direction('down')"
+          >
+            ▾
+          </button>
+        </div>
+        <div class="action-buttons">
+          <div>
+            <button (click)="back()" aria-label="B — Voltar">B</button
+            ><span>VOLTAR</span>
+          </div>
+          <div>
+            <button (click)="interact()" aria-label="A — Interagir">A</button
+            ><span>EXPLORAR</span>
+          </div>
+        </div>
+      </div>
+      <div class="console-bottom">
+        <button class="start-control" (click)="game.menu()">
+          <i></i><span>START / MENU</span>
+        </button>
+        <div class="speaker" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </section>
+    <aside class="instructions">
+      <span class="overline">COMO JOGAR</span>
+      <div>
+        <span class="instruction-icon">✥</span>
+        <p>
+          <strong>Encontre seu caminho</strong
+          ><small>Setas ou WASD para explorar.</small>
+        </p>
+      </div>
+      <div>
+        <span class="instruction-icon">Ⓐ</span>
+        <p>
+          <strong>Descubra uma ideia</strong
+          ><small>Enter ou A para interagir.</small>
+        </p>
+      </div>
+      <div>
+        <span class="instruction-icon">↶</span>
+        <p>
+          <strong>Volte quando quiser</strong
+          ><small>Esc ou B para voltar.</small>
+        </p>
+      </div>
+      <div>
+        <span class="instruction-icon">☰</span>
+        <p>
+          <strong>Pegue um atalho</strong><small>Start ou M abre o menu.</small>
+        </p>
+      </div>
+      <div class="instruction-footer">
+        <span>✧</span> Sem pressa. Explore à vontade.
+      </div>
+    </aside>
+  </main>
+  <footer class="footer">
+    <span>FEITO COM CÓDIGO. E UM POUCO DE NOSTALGIA.</span
+    ><span class="footer-center"
+      >↓ &nbsp; NADA PARA ROLAR. MUITO PARA EXPLORAR.</span
+    ><span>© JOÃO DUARTE</span>
+  </footer>
 </div>
+@if (game.preview(); as preview) {
+  <div class="hologram-backdrop" (click)="closePreview()">
+    <section
+      class="hologram-dialog"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="'Imagem ampliada: ' + preview.alt"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        #previewClose
+        class="hologram-close"
+        type="button"
+        (click)="closePreview()"
+        aria-label="Fechar imagem ampliada"
+      >
+        × FECHAR
+      </button>
+      <div class="hologram-panel">
+        <img [src]="preview.src" [alt]="preview.alt" />
+      </div>
+      <span class="hologram-caption">PROJEÇÃO ATIVA · ESC OU B PARA VOLTAR</span>
+    </section>
+  </div>
+}

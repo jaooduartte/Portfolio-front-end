@@ -1,50 +1,116 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-// @import 'phosphor-icons/src/css/icons.css';
-@import '../src/assets/phosphor-icons/src/css/icons.css';
-
-
-html, body {
-  height: 100%; /* Garante que o corpo da página ocupe toda a altura */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
-
 body {
-  font-family: 'Poppins', sans-serif;
-  background-image: url('assets/light-portfolio1.jpg'); /* Imagem de fundo */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-attachment: fixed; /* Faz o fundo ficar fixo */
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef0e7;
 }
-
-app-root {
-  width: 100%; /* Ajuste para evitar overflow */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
-
-h2 {
-  font-size: 1.5rem;
+button {
+  font: inherit;
 }
-
-.link-hover {
-  text-decoration: none;
-  color: #333;
-  transition: transform 0.3s ease, color 0.3s ease; /* Animação suave no hover */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #9b4058;
+  outline-offset: 3px;
 }
-
-.link-hover:hover {
-  color: #830000;
-  transform: scale(1.1);
+button {
+  touch-action: manipulation;
+}
+::selection {
+  background: #344b35;
+  color: #e3ebc5;
+}
+@keyframes hologram-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.86);
+    clip-path: inset(45% 0 45% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0);
+  }
+}
+.hologram-backdrop {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #182119ba;
+  backdrop-filter: blur(5px);
+}
+.hologram-dialog {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  width: min(100%, 1120px);
+  max-height: calc(100dvh - 48px);
+  color: #e1f1d8;
+  font: 10px "Courier New", monospace;
+  animation: hologram-in 360ms steps(7, end);
+}
+.hologram-panel {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 2px solid #bceca6;
+  background: #87b87a33;
+  box-shadow:
+    0 0 0 7px #a3e99920,
+    0 0 48px #7ff7a966,
+    inset 0 0 45px #2c925b55;
+}
+.hologram-panel::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    #d9ffd60f 0 2px,
+    transparent 2px 6px
+  );
+}
+.hologram-panel img {
+  display: block;
+  width: 100%;
+  max-height: calc(100dvh - 120px);
+  object-fit: contain;
+  filter: saturate(0.82) contrast(1.08);
+}
+.hologram-close {
+  justify-self: end;
+  border: 1px solid #bceca6;
+  background: #17351fcc;
+  color: inherit;
+  padding: 8px 10px;
+  font: inherit;
   cursor: pointer;
 }
-
-@media (max-width: 768px) {
-  .body {
-    background-attachment: scroll; /* Alternativa para dispositivos móveis */
-    background-size: auto;
-    background-position: top; /* Ajusta a posição do fundo */
+.hologram-caption {
+  text-align: center;
+  letter-spacing: 1px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

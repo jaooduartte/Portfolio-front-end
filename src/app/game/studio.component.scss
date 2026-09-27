@@ -1,0 +1,191 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+.studio-heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.room {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border: 5px solid #526348;
+  border-top: 22px solid #526348;
+  background-color: #afbd83;
+  background-image:
+    linear-gradient(#73865222 1px, transparent 1px),
+    linear-gradient(90deg, #73865222 1px, transparent 1px);
+  background-size: 8.333% 12.5%;
+  box-shadow: inset 0 7px #34472e22;
+}
+.station {
+  position: absolute;
+  width: 8.333%;
+  height: 12.5%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #283d2a;
+  z-index: 2;
+  cursor: pointer;
+}
+.object {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 28px;
+  background: #6c7e51;
+  border: 3px solid #354b35;
+  box-shadow: 3px 4px #33432b55;
+}
+.projects {
+  background: #d0d9a1;
+  border-bottom: 7px solid #405839;
+}
+.experience {
+  background: repeating-linear-gradient(90deg, #465837 0 4px, #a4b77a 4px 8px);
+}
+.about {
+  background: #cbd498;
+}
+.skills {
+  background: #84935e;
+}
+.station-label {
+  position: absolute;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 5px);
+  font-size: 9px;
+  background: #cbd6a1;
+  padding: 2px 4px;
+}
+.nearby .object {
+  outline: 2px dashed #263d28;
+  outline-offset: 4px;
+}
+.rug {
+  position: absolute;
+  left: 33%;
+  top: 32%;
+  width: 34%;
+  height: 32%;
+  border: 3px double #7b8e59;
+  display: grid;
+  place-items: center;
+  letter-spacing: 10px;
+  font-size: 24px;
+  color: #7b8e59;
+  background: #a0b176;
+}
+.window {
+  position: absolute;
+  left: 42%;
+  top: -18px;
+  width: 18%;
+  height: 15px;
+  background: #dce4b4;
+  border: 3px solid #33482e;
+  display: flex;
+  justify-content: space-evenly;
+}
+.window i {
+  border-right: 2px solid #526348;
+}
+.player {
+  position: absolute;
+  width: 8.333%;
+  height: 12.5%;
+  z-index: 3;
+  transition:
+    left 100ms linear,
+    top 100ms linear;
+  filter: drop-shadow(2px 3px 0 #33442b55);
+}
+.player span {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+}
+.hair {
+  top: 0;
+  height: 28%;
+  background: #2a3829;
+  box-shadow: -3px 4px #2a3829;
+}
+.face {
+  top: 24%;
+  height: 30%;
+  background: #e0dbaa;
+  border-right: 3px solid #34442c;
+}
+.shirt {
+  top: 52%;
+  height: 28%;
+  background: #384f3c;
+  box-shadow:
+    3px 0 #384f3c,
+    -3px 0 #384f3c;
+}
+.feet {
+  top: 80%;
+  height: 20%;
+  background: linear-gradient(
+    90deg,
+    #263d2a 40%,
+    transparent 40% 60%,
+    #263d2a 60%
+  );
+}
+.studio-hint {
+  font-size: 10px;
+  text-align: center;
+  min-height: 20px;
+}
+.studio-hint span {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid;
+  padding: 2px 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .player {
+    transition: none;
+  }
+}
+@media (max-height: 500px) {
+  :host {
+    gap: 6px;
+  }
+  .station-label {
+    font-size: 8px;
+  }
+  .object {
+    font-size: 20px;
+  }
+}
+
+.object {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.object svg {
+  width: 140%;
+  height: 140%;
+  flex-shrink: 0;
+  fill: #354b35;
+  filter: drop-shadow(2px 3px 0 #33432b44);
+}
+.object svg .light {
+  fill: #d0d9a1;
+}
