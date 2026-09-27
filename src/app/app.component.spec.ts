@@ -41,11 +41,26 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     app.game.openPreview({ src: 'assets/softwareipj.jpeg', alt: 'Exemplo' });
     fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('.hologram-dialog')).not.toBeNull();
+    const dialog = fixture.nativeElement.querySelector(
+      '.hologram-dialog',
+    ) as HTMLDialogElement;
+    expect(dialog.tagName).toBe('DIALOG');
+    expect(dialog.getAttribute('aria-label')).toBe('Imagem ampliada: Exemplo');
     app.keydown(new KeyboardEvent('keydown', { key: 'Escape' }));
     fixture.detectChanges();
     expect(app.game.preview()).toBeNull();
     expect(fixture.nativeElement.querySelector('.hologram-dialog')).toBeNull();
+    fixture.destroy();
+  });
+  it('closes the hologram preview when its backdrop is clicked', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    app.game.openPreview({ src: 'assets/softwareipj.jpeg', alt: 'Exemplo' });
+    fixture.detectChanges();
+    (fixture.nativeElement.querySelector('.hologram-dialog') as HTMLElement).click();
+    fixture.detectChanges();
+    expect(app.game.preview()).toBeNull();
     fixture.destroy();
   });
 });

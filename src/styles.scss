@@ -43,17 +43,23 @@ button {
     clip-path: inset(0);
   }
 }
-.hologram-backdrop {
+.hologram-dialog {
   position: fixed;
   z-index: 20;
   inset: 0;
   display: grid;
   place-items: center;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
   padding: 24px;
   background: #182119ba;
   backdrop-filter: blur(5px);
 }
-.hologram-dialog {
+.hologram-content {
   position: relative;
   display: grid;
   gap: 10px;

@@ -26,6 +26,7 @@ export class AppComponent implements OnDestroy {
   readonly browser = isPlatformBrowser(inject(PLATFORM_ID));
   @ViewChild(ContentComponent) content?: ContentComponent;
   @ViewChild('display') display?: ElementRef<HTMLElement>;
+  @ViewChild('previewDialog') previewDialog?: ElementRef<HTMLDialogElement>;
   @ViewChild('previewClose') previewClose?: ElementRef<HTMLButtonElement>;
   private focusTimer?: ReturnType<typeof setTimeout>;
   private repeatTimer?: ReturnType<typeof setInterval>;
@@ -91,6 +92,11 @@ export class AppComponent implements OnDestroy {
   }
   @HostListener('window:blur') blur() {
     this.release();
+  }
+  @HostListener('document:click', ['$event']) previewBackdrop(
+    event: MouseEvent,
+  ) {
+    if (event.target === this.previewDialog?.nativeElement) this.closePreview();
   }
   @HostListener('document:keydown', ['$event']) keydown(event: KeyboardEvent) {
     if (event.altKey || event.ctrlKey || event.metaKey) return;

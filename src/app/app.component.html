@@ -8,9 +8,9 @@
     ><span class="edition">PORTFÓLIO INTERATIVO — VOL. 01</span>
   </header>
   <main>
-    <aside class="intro">
+    <aside class="intro" aria-labelledby="intro-heading">
       <span class="overline"><i></i> UM POUCO SOBRE MIM, EM PIXELS</span>
-      <h1>Pequena tela.<br />Grandes <em>ideias.</em></h1>
+      <h1 id="intro-heading">Pequena tela.<br />Grandes <em>ideias.</em></h1>
       <p>
         João Duarte. Desenvolvedor full-stack.<br />Construindo soluções,
         explorando<br />possibilidades — um projeto por vez.
@@ -151,8 +151,8 @@
         </div>
       </div>
     </section>
-    <aside class="instructions">
-      <span class="overline">COMO JOGAR</span>
+    <aside class="instructions" aria-labelledby="instructions-heading">
+      <span id="instructions-heading" class="overline">COMO JOGAR</span>
       <div>
         <span class="instruction-icon">✥</span>
         <p>
@@ -193,20 +193,20 @@
   </footer>
 </div>
 @if (game.preview(); as preview) {
-  <div class="hologram-backdrop" (click)="closePreview()">
-    <section
-      class="hologram-dialog"
-      role="dialog"
-      aria-modal="true"
-      [attr.aria-label]="'Imagem ampliada: ' + preview.alt"
-      (click)="$event.stopPropagation()"
-    >
+  <dialog
+    #previewDialog
+    class="hologram-dialog"
+    open
+    aria-modal="true"
+    [attr.aria-label]="'Imagem ampliada: ' + preview.alt"
+  >
+    <div class="hologram-content">
       <button
         #previewClose
         class="hologram-close"
         type="button"
         (click)="closePreview()"
-        aria-label="Fechar imagem ampliada"
+        aria-label="Fechar"
       >
         × FECHAR
       </button>
@@ -214,6 +214,6 @@
         <img [src]="preview.src" [alt]="preview.alt" />
       </div>
       <span class="hologram-caption">PROJEÇÃO ATIVA · ESC OU B PARA VOLTAR</span>
-    </section>
-  </div>
+    </div>
+  </dialog>
 }
